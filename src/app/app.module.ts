@@ -10,7 +10,7 @@ import { DatabindingComponent } from './databinding/databinding.component';
 import { ClassStyleComponent } from './class-style/class-style.component';
 import { TemplateReferencevariableComponent } from './template-referencevariable/template-referencevariable.component';
 import { TwoWayDataBindingComponent } from './two-way-data-binding/two-way-data-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -89,7 +89,8 @@ import { PLandingPageComponent } from './project/p-landing-page/p-landing-page.c
     FormsModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

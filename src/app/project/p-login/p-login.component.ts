@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PLandingPageComponent } from '../p-landing-page/p-landing-page.component';
 import { GlobalService } from 'src/app/appService/global.service';
+import { LoginRegistrationService } from 'src/app/appService/login-registration.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-p-login',
@@ -10,7 +12,31 @@ import { GlobalService } from 'src/app/appService/global.service';
 })
 export class PLoginComponent {
 
-  constructor(private router:Router, private Ser:GlobalService){}
+  loginPage:boolean = false
+
+  constructor(private router:Router, private Ser:GlobalService , private _loginSer: LoginRegistrationService){
+    this._loginSer.loginPage.subscribe(res=>{
+      this.loginPage = res
+    })
+  }
+
+  myLoginForm!:FormGroup;
+  myRegistrationForm!:FormGroup;
+
+  ngOnInit(){
+    this.myRegistrationForm = new FormGroup({
+      'firstName' : new FormControl(''),
+      'lastName' : new FormControl(''),
+      'email' : new FormControl(''),
+      'password' : new FormControl(''),
+      'confirmPassword' : new FormControl(''),
+    })
+
+    this.myLoginForm = new FormGroup({
+      'email' : new FormControl(''),
+      'password' : new FormControl(''),
+    })
+  }
 
   @ViewChild(PLandingPageComponent) obj!:PLandingPageComponent
 
@@ -21,36 +47,37 @@ export class PLoginComponent {
     {name:'hardik',password:'Hardik@123'},
   ]
 
-  onLogin(userName:any,password:any){
-  //   if(userName.value.length>0 && password.value.length>0){
-  //     for (let i = 0; i < this.users.length; i++) {
-  //       if(this.users[i].name === userName.value && this.users[i].password === password.value){
-  //         this.router.navigate(['p-home'])
-  //       localStorage.setItem('User',JSON.stringify(this.users[i].name))
-  //       break;
-  //     }else{
-  //       if(this.users[i].name != userName.value){
-  //         alert("Incorrect Username!!!")
-  //         break
-  //       }else if(this.users[i].password != password.value){
-  //         alert("Incorrect Password!!!")
-  //         break
-  //       }else{
-  //         alert("Wrong Credentials")
-  //         break
+  // onLogin(userName:any,password:any){
+
+  // for (let i = 0; i < this.users.length; i++) {
+  //         if(this.users[i].name === userName.value && this.users[i].password === password.value){
+  //           this.router.navigate(['p-gallery'])
+  //           localStorage.setItem('User',JSON.stringify(this.users[i].name))
+  //           this.Ser.loggedIn.next(true)
+  //           break;
   //       }
   //     }
-  //   }
   // }
-  for (let i = 0; i < this.users.length; i++) {
-          if(this.users[i].name === userName.value && this.users[i].password === password.value){
-            this.router.navigate(['p-gallery'])
-            localStorage.setItem('User',JSON.stringify(this.users[i].name))
-            // this.obj.loggedIn = true
-            this.Ser.loggedIn.next(true)
-            break;
-        }
+
+  onLogin(){
+    this._loginSer.loginUser(this.myLoginForm.value).subscribe((res:any)=>{
+      if(res.length != 0){
+        console.log("Login Successful");
+      }else{
+        console.log("Incorrect UserName or Password");
       }
+    })
+  }
+
+  onRegistration(){
+    this._loginSer.registration(this.myRegistrationForm.value).subscribe((res)=>{
+      console.log(res,"User Registered Successfully");
+      this.loginPage = true
+    })
+  }
+
+  accounts(){
+    this.loginPage = !this.loginPage
   }
 
 }
