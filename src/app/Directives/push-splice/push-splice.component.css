@@ -1,0 +1,29 @@
+input{
+    padding: 5px 10px;
+    margin: 20px;
+}
+
+button{
+    color: White;
+    background-color: rgb(62, 255, 62);
+    border: none;
+    padding: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+button:hover{
+    color: rgb(62, 255, 62);
+    background-color: black;
+}
+
+.th{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    width: 50vw;
+    margin-right: 0;
+}
+
+.delete{
+    background-color: red;
+}

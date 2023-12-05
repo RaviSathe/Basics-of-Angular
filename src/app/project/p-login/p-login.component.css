@@ -1,0 +1,19 @@
+.box{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    box-shadow: 5px 5px 10px grey;
+    padding: 50px 0;
+}
+input{
+    margin: 10px;
+    padding: 10px 30px;
+}
+button{
+    margin: 10px;
+    color: white;
+    background-color: rgb(1, 111, 255);
+    padding: 10px 40px;
+    border: none;
+}

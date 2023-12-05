@@ -1,0 +1,9 @@
+.container{
+    background-color: lightgray;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.c{
+    width: 100%;
+}

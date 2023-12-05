@@ -1,0 +1,36 @@
+<div class="container">
+    <h1 class="ex">EXERCISE</h1>
+    <div class="col1">
+        <div class="user">
+            <h1>User</h1>
+            <table class="table">
+                <tr>
+                    <th>User Name:</th>
+                    <th class="text-danger">Remove</th>
+                </tr>
+                <tr *ngFor="let user of users; index as i">
+                    <td>{{user}}</td>
+                    <td (click)="onUserRemove(i)">Remove</td>
+                </tr>
+            </table>
+        </div>
+        <div class="admin">
+            <h1>Admin</h1>
+            <table class="table">
+                <tr>
+                    <th>Admin Name:</th>
+                    <th class="text-danger">Remove</th>
+                </tr>
+                <tr *ngFor="let admin of admins; index as i">
+                    <td>{{admin}}</td>
+                    <td (click)="onAdminRemove(i)">Remove</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<hr>
+<app-child
+(UserInputEvent)="pushUser($event)"
+(AdminInputEvent)="pushAdmin($event)"
+></app-child>

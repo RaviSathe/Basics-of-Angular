@@ -1,0 +1,19 @@
+<div class="container">
+    <input type="text" #data>
+    <button (click)="onSubmit(data)">Submit</button>
+
+
+    <table class="tab">
+        <tr>
+            <th class="th">User</th>
+            <th class="th">Action</th>
+        </tr>
+        <tr *ngFor="let user of userss; index as i">
+            <td>{{user.name}}</td>
+            <td>
+                <button class="delete" (click)="deleteuser(i)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+

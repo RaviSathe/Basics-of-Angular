@@ -1,0 +1,35 @@
+<button (click)="show()">Show</button>
+<p *ngIf="display">{{data}}</p>
+
+<br><br><br>
+
+<select name="" id="" (change)="select($event)">
+    <option value="Mobile">Mobile</option>
+    <option value="TV">TV</option>
+    <option value="Machine">Machine</option>
+    <option value="Fridge">Fridge</option>
+</select>
+
+<div [ngSwitch]="selectedvalue">
+    <h2 *ngSwitchCase="'Mobile'">Mobile</h2>
+    <h2 *ngSwitchCase="'TV'">TV</h2>
+    <h2 *ngSwitchCase="'Machine'">Machine</h2>
+    <h2 *ngSwitchCase="'Fridge'">Fridge</h2>
+</div>
+
+<br><br><br>
+
+<table class="table">
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Price</th>
+    </tr>
+    <tr *ngFor="let pro of product; odd as i">
+        <td>{{i}}</td>
+        <td>{{pro.name}}</td>
+        <td>{{pro.color}}</td>
+        <td>{{pro.price}}</td>
+    </tr>
+</table>

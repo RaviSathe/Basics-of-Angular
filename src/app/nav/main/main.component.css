@@ -1,0 +1,16 @@
+.container{
+    width: 80vw;
+    margin: auro;
+    margin-top: 70px;
+}
+
+ul li{
+    display: inline-block;
+    margin: 10px 20px 0 0;
+    cursor: pointer;
+}
+ul{
+    /* border: 1px solid black; */
+    padding-left: 0;
+    margin-bottom: 0;
+}

@@ -1,0 +1,31 @@
+.ex{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(0, 220, 0);
+}
+.col1{
+    display: flex;
+    justify-content: space-between;
+}
+.user{
+    width: 40%;
+    height: 200px;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+.admin{
+    height: 200px;
+    width: 40%;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(0, 220, 0);
+}
+/* .th{
+    display: flex;
+    justify-content: space-between;
+} */

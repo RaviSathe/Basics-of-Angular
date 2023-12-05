@@ -1,0 +1,14 @@
+.container{
+    border: 2px solid red;
+    display: flex;
+    height: 60vh;
+    flex-wrap: wrap;
+    /* overflow: hidden; */
+}
+.items{
+    height: 40px;
+    width: 40px;
+    background-color: violet;
+    margin: 5px;
+    border: 2px solid black;
+}

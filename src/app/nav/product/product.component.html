@@ -1,0 +1,25 @@
+<div class="center">
+    <h1>Products</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut tenetur iure consequatur quasi quod doloribus in voluptatem. Ullam, consequuntur deserunt! Perferendis dolores voluptates pariatur nam quo, ratione, amet magnam id optio doloribus quisquam eveniet voluptatem fugit culpa voluptatum officiis distinctio eaque voluptas sunt recusandae consequatur repellat atque illo? Sit, explicabo!</p>
+</div>
+<hr>
+<div class="box">
+    <div class="products" >
+        <div class="item" *ngFor="let pro of productsArray; index as i" appTestDirective>
+            <img src="{{pro.image}}" alt="laptop" width="100%">
+            <h3>{{pro.name}}</h3>
+            <p>{{pro.description}}</p>
+            <button class="know-more" (click)="knowMore(i)">Know more</button>
+        </div>
+    </div>
+    <div class="result">
+        <div class="show">
+            <div class="item" *ngFor="let d of data">
+                <img src="{{d.image}}" alt="laptop" width="100%">
+                <h3>{{d.name}}</h3>
+                <p>{{d.description}}</p>
+                <button class="know-more" routerLink="data" >Know more</button>
+            </div>
+        </div>
+    </div>
+</div>
